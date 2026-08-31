@@ -17,6 +17,41 @@ class _Tarea1CalculadoraState extends State<Tarea1Calculadora> {
   String resultado = '';
   String accion = '';
 
+  // Hace la operacion que se pidio con el boton
+  void calcular(String operacion) {
+    double a = double.tryParse(numero1.text) ?? 0;
+    double b = double.tryParse(numero2.text) ?? 0;
+    double total = 0;
+
+    if (operacion == '+') {
+      total = a + b;
+      accion = 'SUMA';
+    } else if (operacion == '-') {
+      total = a - b;
+      accion = 'RESTA';
+    } else if (operacion == '*') {
+      total = a * b;
+      accion = 'MULTIPLICACION';
+    } else {
+      total = a / b;
+      accion = 'DIVISION';
+    }
+
+    setState(() {
+      resultado = total.toString();
+    });
+  }
+
+  // Deja la pantalla como al principio
+  void borrar() {
+    setState(() {
+      numero1.text = '';
+      numero2.text = '';
+      resultado = '';
+      accion = '';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,28 +109,36 @@ class _Tarea1CalculadoraState extends State<Tarea1Calculadora> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      calcular('+');
+                    },
                     child: const Text('+'),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      calcular('-');
+                    },
                     child: const Text('-'),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      calcular('*');
+                    },
                     child: const Text('*'),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      calcular('/');
+                    },
                     child: const Text('/'),
                   ),
                 ),
@@ -106,7 +149,7 @@ class _Tarea1CalculadoraState extends State<Tarea1Calculadora> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: borrar,
                 child: const Text('BORRAR'),
               ),
             ),
