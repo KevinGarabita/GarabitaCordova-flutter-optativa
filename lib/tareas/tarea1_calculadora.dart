@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../widgets/cajaNumero.dart';
+import '../widgets/botonOperacion.dart';
+import '../widgets/botonBorrar.dart';
 
 // Tarea 1: Calculadora basica
 class Tarea1Calculadora extends StatefulWidget {
@@ -45,11 +48,18 @@ class _Tarea1CalculadoraState extends State<Tarea1Calculadora> {
   // Deja la pantalla como al principio
   void borrar() {
     setState(() {
-      numero1.text = '';
-      numero2.text = '';
+      numero1.clear();
+      numero2.clear();
       resultado = '';
       accion = '';
     });
+  }
+
+  @override
+  void dispose() {
+    numero1.dispose();
+    numero2.dispose();
+    super.dispose();
   }
 
   @override
@@ -80,27 +90,9 @@ class _Tarea1CalculadoraState extends State<Tarea1Calculadora> {
             // Las dos cajas donde se escriben los numeros
             Row(
               children: [
-                Expanded(
-                  child: TextField(
-                    controller: numero1,
-                    keyboardType: TextInputType.number,
-                    textAlign: TextAlign.center,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                ),
+                Expanded(child: CajaNumero(controller: numero1)),
                 const SizedBox(width: 20),
-                Expanded(
-                  child: TextField(
-                    controller: numero2,
-                    keyboardType: TextInputType.number,
-                    textAlign: TextAlign.center,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                ),
+                Expanded(child: CajaNumero(controller: numero2)),
               ],
             ),
             const SizedBox(height: 20),
@@ -108,51 +100,45 @@ class _Tarea1CalculadoraState extends State<Tarea1Calculadora> {
             Row(
               children: [
                 Expanded(
-                  child: ElevatedButton(
+                  child: BotonOperacion(
+                    simbolo: '+',
                     onPressed: () {
                       calcular('+');
                     },
-                    child: const Text('+'),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: ElevatedButton(
+                  child: BotonOperacion(
+                    simbolo: '-',
                     onPressed: () {
                       calcular('-');
                     },
-                    child: const Text('-'),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: ElevatedButton(
+                  child: BotonOperacion(
+                    simbolo: '*',
                     onPressed: () {
                       calcular('*');
                     },
-                    child: const Text('*'),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: ElevatedButton(
+                  child: BotonOperacion(
+                    simbolo: '/',
                     onPressed: () {
                       calcular('/');
                     },
-                    child: const Text('/'),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 20),
             // Boton para limpiar todo
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: borrar,
-                child: const Text('BORRAR'),
-              ),
-            ),
+            BotonBorrar(onPressed: borrar),
           ],
         ),
       ),
