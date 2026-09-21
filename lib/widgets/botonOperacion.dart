@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../estilos/estilosApp.dart';
 
 // Boton de una operacion (+, -, *, /)
 class BotonOperacion extends StatelessWidget {
@@ -14,13 +15,11 @@ class BotonOperacion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55,
+      height: EstilosApp.altoBoton,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(
-          simbolo,
-          style: const TextStyle(fontSize: 18),
-        ),
+        style: EstilosApp.estiloBoton(),
+        child: Text(simbolo),
       ),
     );
   }

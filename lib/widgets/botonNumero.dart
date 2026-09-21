@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../estilos/estilosApp.dart';
 
 // Boton de un numero del teclado (del 0 al 9)
 class BotonNumero extends StatelessWidget {
@@ -14,14 +15,11 @@ class BotonNumero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55,
+      height: EstilosApp.altoBoton,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(
-          numero,
-          // Los numeros se ven en negro
-          style: const TextStyle(color: Colors.black, fontSize: 18),
-        ),
+        style: EstilosApp.estiloBoton(),
+        child: Text(numero),
       ),
     );
   }

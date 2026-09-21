@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../estilos/estilosApp.dart';
 
 // Caja de texto de la calculadora.
 // Cuando esta seleccionada se le pinta un borde mas grueso para que
@@ -28,13 +29,12 @@ class CajaNumero extends StatelessWidget {
       keyboardType: TextInputType.number,
       textAlign: TextAlign.center,
       // Los numeros se ven en negro
-      style: const TextStyle(color: Colors.black, fontSize: 20),
-      decoration: InputDecoration(
-        labelText: etiqueta,
-        border: const OutlineInputBorder(),
+      style: const TextStyle(color: EstilosApp.colorTexto, fontSize: 20),
+      decoration: EstilosApp.cajaTexto(etiqueta).copyWith(
         enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(EstilosApp.bordeRedondeado),
           borderSide: BorderSide(
-            color: seleccionada ? Colors.deepPurple : Colors.grey,
+            color: seleccionada ? EstilosApp.colorPrincipal : Colors.grey,
             width: seleccionada ? 2 : 1,
           ),
         ),

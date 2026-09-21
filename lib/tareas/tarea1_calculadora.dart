@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../estilos/estilosApp.dart';
 import '../widgets/cajaNumero.dart';
 import '../widgets/botonNumero.dart';
 import '../widgets/botonOperacion.dart';
@@ -117,10 +118,8 @@ class _Tarea1CalculadoraState extends State<Tarea1Calculadora> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Calculadora'),
-        centerTitle: true,
-      ),
+      backgroundColor: EstilosApp.colorFondo,
+      appBar: EstilosApp.appBar('Calculadora'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
