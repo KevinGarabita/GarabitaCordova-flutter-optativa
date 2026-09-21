@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'tareas/tarea1_calculadora.dart';
+import 'estilos/estilosApp.dart';
+import 'tareas/pantallaPrincipal.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,9 +12,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Calculadora',
-      theme: ThemeData(colorSchemeSeed: Colors.deepPurple),
-      home: const Tarea1Calculadora(),
+      title: 'Tareas Flutter',
+      theme: ThemeData(colorSchemeSeed: EstilosApp.colorPrincipal),
+      home: const PantallaPrincipal(),
     );
   }
 }
