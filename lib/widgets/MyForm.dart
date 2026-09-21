@@ -11,13 +11,13 @@ class _MyFormState extends State<MyForm> {
   final TextEditingController _controller = TextEditingController();
   String _inputValue = '';
 
-  setStateInput() {
+  void setStateInput() {
     setState(() {
       _inputValue = _controller.text;
     });
   }
 
-  setStateClear() {
+  void setStateClear() {
     setState(() {
       _controller.clear();
       _inputValue = '';

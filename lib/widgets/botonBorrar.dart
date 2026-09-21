@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../estilos/estilosApp.dart';
 
 // Boton ancho que limpia la calculadora
 class BotonBorrar extends StatelessWidget {
@@ -10,9 +11,11 @@ class BotonBorrar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
+      height: EstilosApp.altoBoton,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: const Text('BORRAR'),
+        style: EstilosApp.estiloBoton(),
+        child: const Text('Borrar'),
       ),
     );
   }
