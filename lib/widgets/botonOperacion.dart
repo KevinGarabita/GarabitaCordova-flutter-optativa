@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// Boton cuadrado de una operacion (+, -, *, /)
+// Boton de una operacion (+, -, *, /)
 class BotonOperacion extends StatelessWidget {
   final String simbolo;
   final VoidCallback onPressed;
@@ -13,9 +13,15 @@ class BotonOperacion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Text(simbolo),
+    return SizedBox(
+      height: 55,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: Text(
+          simbolo,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
     );
   }
 }

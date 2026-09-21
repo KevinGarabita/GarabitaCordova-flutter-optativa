@@ -10,9 +10,10 @@ class BotonBorrar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
+      height: 55,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: const Text('BORRAR'),
+        child: const Text('Borrar', style: TextStyle(fontSize: 18)),
       ),
     );
   }
