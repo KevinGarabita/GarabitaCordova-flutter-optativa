@@ -10,8 +10,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Tarea1Calculadora(),
+    return MaterialApp(
+      title: 'Calculadora',
+      theme: ThemeData(colorSchemeSeed: Colors.deepPurple),
+      home: const Tarea1Calculadora(),
     );
   }
 }
